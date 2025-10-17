@@ -1,4 +1,4 @@
-# 🐾 Refugio Hocicos — Sitio Web Oficial
+# 🐾 Refugio Hocicos — Plataforma Solidaria
 
 Sitio web informativo y solidario desarrollado para **Refugio Hocicos**, una ONG local dedicada al rescate, cuidado y adopción responsable de animales.  
 Este proyecto busca **dar visibilidad a las mascotas**, **facilitar las adopciones** y **promover la colaboración** mediante donaciones y voluntariado.
@@ -78,9 +78,8 @@ El objetivo principal es brindar una plataforma **simple, accesible y autogestio
 
 ---
 
----
 ## 🧡 Créditos
-Proyecto desarrollado con fines solidarios por [Mauricio Pucheta](https://github.com/mauripucheta1) junto al equipo de **Refugio Hocicos**.  
+Proyecto desarrollado con fines solidarios por [Mauricio Pucheta](https://github.com/tuusuario) junto al equipo de **Refugio Hocicos**.  
 “Cada huella cuenta para cambiar una vida.” 🐕🐈
 
 Este proyecto se distribuye bajo la Licencia MIT, permitiendo su uso y modificación libre para fines educativos o sin fines de lucro.
