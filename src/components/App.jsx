@@ -5,6 +5,7 @@ import Main from "./Main";
 import Adopt from "./Adopt";
 import Donate from "./Donate";
 import Join from "./Join";
+import Contact from "./Contact";
 
 export default function App () {
 
@@ -31,6 +32,7 @@ export default function App () {
             <Join />
 
             {/* Section (contacto) */}
+            <Contact />
 
             {/* Footer */}
             

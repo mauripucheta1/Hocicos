@@ -120,9 +120,9 @@ const Join = () => {
                     >
 
                         <h4 className="text-2xl font-bold text-gray-800 mb-4">Formulario de inscripción</h4>
-                        <input type="text" placeholder="Nombre completo" className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:border-[#4CD964] focus:border-2" />
-                        <input type="email" placeholder="Correo electrónico" className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:border-[#4CD964] focus:border-2" />
-                        <input type="tel" placeholder="Teléfono" className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:border-[#4CD964] focus:border-2" />
+                        <input type="text" placeholder="Nombre completo" className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]" />
+                        <input type="email" placeholder="Correo electrónico" className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]" />
+                        <input type="tel" placeholder="Teléfono" className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]" />
 
                         {/* Selector de área */}
                         <div className="space-y-2">

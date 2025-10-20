@@ -37,7 +37,7 @@ const Hero = () => {
 
     return (
 
-        <section className="relative w-full h-screen overflow-hidden">
+        <section id="heroSection" className="relative w-full h-screen overflow-hidden">
 
             <AnimatePresence mode="wait">
 
