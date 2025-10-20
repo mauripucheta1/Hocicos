@@ -57,9 +57,6 @@ El objetivo principal es brindar una plataforma **simple, accesible y autogestio
 - Descripción de las áreas en las que se necesita ayuda.  
 - Formulario de inscripción simple.  
 - Enlaces a redes sociales o WhatsApp para contacto directo.
-
-### 📣 Campañas / Novedades
-
 - Noticias, actividades y eventos del refugio.  
 - Enlaces a publicaciones en redes sociales.
 

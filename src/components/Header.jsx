@@ -17,7 +17,8 @@ const Header = () => {
 
                 <a href='#aboutWe' className="link-animada">Nosotros</a>
                 <a href='#adopt' className="link-animada">Adoptar</a>
-                <a href='#' className="link-animada">Contactar</a>
+                <a href='#adopt' className="link-animada">Voluntariado</a>
+                <a href='#donate' className="link-animada">Contactar</a>
                 <a href='#' className="px-6 py-2 bg-[#4CD964] hover:bg-[#3AB54A] transition-all ease-in text-white rounded-lg">Donar</a>
 
             </nav>

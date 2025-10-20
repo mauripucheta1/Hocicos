@@ -3,6 +3,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import Main from "./Main";
 import Adopt from "./Adopt";
+import Donate from "./Donate";
 
 export default function App () {
 
@@ -23,6 +24,7 @@ export default function App () {
             <Adopt />
 
             {/* Section (donaciones) */}
+            <Donate />
             
             {/* Section (campañas / novedades) */}
 

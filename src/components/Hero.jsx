@@ -7,13 +7,13 @@ const Hero = () => {
 
     const slides = [
         {
-            image: "/hero-street-dog.webp",
+            image: "/hero-street-dog-2.webp",
             title: "Adoptá un amigo, salvá una vida",
             subtitle: "Miles de perritos esperan una segunda oportunidad.",
             buttons: ["Adoptá", "Doná"],
         },
         {
-            image: "/hero-street-dog-2.webp",
+            image: "/hero-street-dog.webp",
             title: "El amor no se compra, se rescata",
             subtitle: "Ayudanos a seguir cuidando y alimentando a los que más lo necesitan.",
             buttons: ["Ver más", "Doná"],
