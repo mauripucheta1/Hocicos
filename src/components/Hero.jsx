@@ -39,7 +39,7 @@ const Hero = () => {
                 {/* Imagen posterior */}
                 <button className="hover:cursor-pointer bg-gray-200 hover:bg-gray-800 ease-in transition-all absolute top-1/2 -translate-y-1/2 right-8 p-1 rounded-full" onClick={nextImage}>
                 
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4cd964" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4cd964" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M4 9h8v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1z" />
                     </svg>
                 
