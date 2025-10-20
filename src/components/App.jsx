@@ -6,6 +6,7 @@ import Adopt from "./Adopt";
 import Donate from "./Donate";
 import Join from "./Join";
 import Contact from "./Contact";
+import Footer from "./Footer";
 
 export default function App () {
 
@@ -35,7 +36,7 @@ export default function App () {
             <Contact />
 
             {/* Footer */}
-            
+            <Footer />
 
         </>
 

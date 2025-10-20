@@ -86,17 +86,46 @@ const Hero = () => {
                     className="flex flex-wrap justify-center gap-4 mt-8"
                 >
 
-                    {slides[currentIndex].buttons.map((btn, idx) => (
+                    {slides[currentIndex].buttons.map((btn, idx) => {
+                        
+                        let target = "#";
+                        switch (btn) {
+                            case "Adoptá":
+                                target = "#adopt";
+                                break;
+                            case "Ver más":
+                                target = "#aboutWe";
+                                break;
+                            case "Doná":
+                                target = "#donate";
+                                break;
+                            case "Salvá vidas":
+                                target = "#join";
+                                break;
+                        }
 
-                        <button key={idx} className={`px-6 py-3 rounded-full font-semibold transition-all hover:cursor-pointer ${
-                        idx === 0
-                            ? "bg-[#4cd964] text-white hover:bg-[#3cbf54]"
-                            : "bg-transparent border border-white text-white hover:bg-white hover:text-gray-900"
-                        }`}>
-                            {btn}
-                        </button>
+                        const handleClick = () => {
+                            const el = document.querySelector(target);
+                            if (el) {
+                                el.scrollIntoView({ behavior: "smooth" });
+                            }
+                        };
 
-                    ))}
+                        return (
+                            <button
+                                key={idx}
+                                onClick={handleClick}
+                                className={`px-6 py-3 rounded-full font-semibold transition-all hover:cursor-pointer ${
+                                    idx === 0
+                                        ? "bg-[#4cd964] text-white hover:bg-[#3cbf54]"
+                                        : "bg-transparent border border-white text-white hover:bg-white hover:text-gray-900"
+                                }`}
+                            >
+                                {btn}
+                            </button>
+                        );
+
+                    })}
 
                 </motion.div>
 
