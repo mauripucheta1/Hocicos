@@ -43,7 +43,7 @@ El objetivo principal es brindar una plataforma **simple, accesible y autogestio
 - Listado visual de mascotas en adopción.  
 - Filtros por tipo, edad, tamaño o estado.  
 - Fichas individuales con fotos, descripción e historia.  
-- Botón **“Quiero adoptar”** que abre un formulario externo (Formspree).
+- Botón **“Quiero adoptar”** que redirecciona a WhatsApp.
 
 ### 💰 Donaciones
 

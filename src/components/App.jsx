@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Hero from "./Hero";
 import Main from "./Main";
+import Adopt from "./Adopt";
 
 export default function App () {
 
@@ -19,6 +20,7 @@ export default function App () {
             <Main />
 
             {/* Section (adopciones) */}
+            <Adopt />
 
             {/* Section (donaciones) */}
             
