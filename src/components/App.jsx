@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Main from "./Main";
 import Adopt from "./Adopt";
 import Donate from "./Donate";
+import Join from "./Join";
 
 export default function App () {
 
@@ -26,7 +27,8 @@ export default function App () {
             {/* Section (donaciones) */}
             <Donate />
             
-            {/* Section (campañas / novedades) */}
+            {/* Section (campañas / novedades / voluntariado) */}
+            <Join />
 
             {/* Section (contacto) */}
 
