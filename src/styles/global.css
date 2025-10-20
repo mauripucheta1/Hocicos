@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .link-animada {
   position: relative;
   display: inline-block;
-  color: #333;
+  color: white;
   text-decoration: none;
 }
 
@@ -24,8 +24,4 @@ html {
 
 .link-animada:hover::after {
   width: 100%;
-}
-
-.headerStyle { 
-    box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.2);
 }

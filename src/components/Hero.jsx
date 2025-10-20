@@ -1,53 +1,122 @@
-import { use, useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Hero = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const images = [
-        '/hero-street-dog.webp',
-        '/hero-street-dog-2.webp',
-        '/hero-street-dog-3.webp',
-        '/hero-street-dog-4.webp'
+    const slides = [
+
+        {
+            image: "/hero-street-dog.webp",
+            title: "Adoptá un amigo, salvá una vida",
+            subtitle: "Miles de perritos esperan una segunda oportunidad.",
+            buttons: ["Adoptá", "Doná"],
+        },
+        {
+            image: "/hero-street-dog-2.webp",
+            title: "El amor no se compra, se rescata",
+            subtitle: "Ayudanos a seguir cuidando y alimentando a los que más lo necesitan.",
+            buttons: ["Ver más", "Doná"],
+        },
+        {
+            image: "/hero-street-dog-3.webp",
+            title: "Tu ayuda puede cambiar su destino",
+            subtitle: "Cada granito de arena cuenta para salvar vidas.",
+            buttons: ["Salvá vidas", "Doná"],
+        },
+        {
+            image: "/hero-street-dog-4.webp",
+            title: "Un hogar, una historia nueva",
+            subtitle: "Convertite en parte del cambio. Ellos te necesitan.",
+            buttons: ["Ver más", "Doná"],
+        },
     ];
 
-    const nextImage = () => {
-        setCurrentIndex(prev => (prev + 1) % images.length);
-    };
-
-    const prevImage = () => {
-        setCurrentIndex(prev => (prev - 1) % images.length);
-    };
+    const nextImage = () => setCurrentIndex((prev) => (prev + 1) % slides.length);
+    const prevImage = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
     return (
 
-        <section className='w-full h-screen'>
+        <section className="relative w-full h-screen overflow-hidden">
 
-            <div className="relative">
+            <AnimatePresence mode="wait">
 
-                <img src={images[currentIndex]} alt='Imagen Hero' className='w-full h-screen object-center brightness-50' />
+                <motion.img
+                    key={slides[currentIndex].image}
+                    src={slides[currentIndex].image}
+                    alt="Imagen Hero"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    className="w-full h-screen object-cover brightness-50 absolute inset-0"
+                />
 
-                {/* Imagen anterior */}
-                <button className="hover:cursor-pointer bg-gray-200 hover:bg-gray-800 ease-in transition-all absolute top-1/2 -translate-y-1/2 left-8 p-1 rounded-full" onClick={prevImage}>
-                
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4cd964" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20 15h-8v3.586a1 1 0 0 1 -1.707 .707l-6.586 -6.586a1 1 0 0 1 0 -1.414l6.586 -6.586a1 1 0 0 1 1.707 .707v3.586h8a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1z" />
-                    </svg>
+            </AnimatePresence>
 
-                </button>
+            {/* Contenido textual */}
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
 
-                {/* Imagen posterior */}
-                <button className="hover:cursor-pointer bg-gray-200 hover:bg-gray-800 ease-in transition-all absolute top-1/2 -translate-y-1/2 right-8 p-1 rounded-full" onClick={nextImage}>
-                
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4cd964" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4 9h8v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1z" />
-                    </svg>
-                
-                </button>
+                <motion.h1
+                    key={slides[currentIndex].title}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="text-4xl md:text-6xl font-bold text-white mb-4"
+                >
+                    {slides[currentIndex].title}
+                </motion.h1>
+
+                <motion.p
+                    key={slides[currentIndex].subtitle}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+                    className="text-lg md:text-2xl text-gray-100 max-w-2xl"
+                >
+                    {slides[currentIndex].subtitle}
+                </motion.p>
+
+                {/* Botones */}
+                <motion.div
+                    key={slides[currentIndex].buttons.join("-")}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.3, ease: "easeOut", delay: 0.4 }}
+                    className="flex flex-wrap justify-center gap-4 mt-8"
+                >
+
+                    {slides[currentIndex].buttons.map((btn, idx) => (
+
+                        <button key={idx} className={`px-6 py-3 rounded-full font-semibold transition-all hover:cursor-pointer ${
+                        idx === 0
+                            ? "bg-[#4cd964] text-gray-900 hover:bg-[#3cbf54]"
+                            : "bg-transparent border border-white text-white hover:bg-white hover:text-gray-900"
+                        }`}>
+                            {btn}
+                        </button>
+
+                    ))}
+
+                </motion.div>
 
             </div>
-        
-        </section>  
+
+            {/* Botones de navegación */}
+            <button onClick={prevImage} className="absolute top-1/2 left-6 -translate-y-1/2 bg-gray-200/20 hover:bg-gray-800/40 transition-all rounded-full p-2 z-20 hover:cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" stroke="#4cd964" fill="none" viewBox="0 0 24 24">
+                    <path d="M15 18l-6-6 6-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+
+            <button onClick={nextImage} className="absolute top-1/2 right-6 -translate-y-1/2 bg-gray-200/20 hover:bg-gray-800/40 transition-all rounded-full p-2 z-20 hover:cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" stroke="#4cd964" fill="none" viewBox="0 0 24 24">
+                    <path d="M9 6l6 6-6 6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+
+        </section>
 
     );
 

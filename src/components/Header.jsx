@@ -2,7 +2,7 @@ const Header = () => {
 
     return (
         
-        <header className='w-full 2xl:h-[150px] flex justify-between items-center px-10 headerStyle absolute z-10 bg-white'>
+        <header className='w-full 2xl:h-[150px] flex justify-between items-center px-10 absolute z-50 bg-transparent text-white'>
         
             <div className="w-auto h-full flex items-center">
 
