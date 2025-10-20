@@ -6,7 +6,6 @@ const Hero = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const slides = [
-
         {
             image: "/hero-street-dog.webp",
             title: "Adoptá un amigo, salvá una vida",
@@ -91,7 +90,7 @@ const Hero = () => {
 
                         <button key={idx} className={`px-6 py-3 rounded-full font-semibold transition-all hover:cursor-pointer ${
                         idx === 0
-                            ? "bg-[#4cd964] text-gray-900 hover:bg-[#3cbf54]"
+                            ? "bg-[#4cd964] text-white hover:bg-[#3cbf54]"
                             : "bg-transparent border border-white text-white hover:bg-white hover:text-gray-900"
                         }`}>
                             {btn}

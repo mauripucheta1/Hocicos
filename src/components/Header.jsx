@@ -15,7 +15,7 @@ const Header = () => {
 
             <nav className="w-auto h-full flex items-center gap-5 2xl:text-lg font-medium uppercase" aria-label="Menú principal">
 
-                <a href='#' className="link-animada">Nosotros</a>
+                <a href='#aboutWe' className="link-animada">Nosotros</a>
                 <a href='#' className="link-animada">Adoptar</a>
                 <a href='#' className="link-animada">Contactar</a>
                 <a href='#' className="px-6 py-2 bg-[#4CD964] hover:bg-[#3AB54A] transition-all ease-in text-white rounded-lg">Donar</a>

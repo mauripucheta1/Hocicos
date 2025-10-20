@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Hero from "./Hero";
+import Main from "./Main";
 
 export default function App () {
 
@@ -14,9 +15,10 @@ export default function App () {
             {/* Hero */}
             <Hero />
 
-            {/* Section (sobre nosotros) */}
+            {/* Main (sobre nosotros) */}
+            <Main />
 
-            {/* Main (adopciones) */}
+            {/* Section (adopciones) */}
 
             {/* Section (donaciones) */}
             

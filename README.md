@@ -36,7 +36,6 @@ El objetivo principal es brindar una plataforma **simple, accesible y autogestio
 ### 🏠 Inicio
 
 - Presentación del refugio, su misión y logros.  
-- Enlaces rápidos a adopciones, donaciones y contacto.  
 - Galería de historias de éxito o animales adoptados.
 
 ### 🐶 Adopciones
@@ -63,12 +62,6 @@ El objetivo principal es brindar una plataforma **simple, accesible y autogestio
 
 - Noticias, actividades y eventos del refugio.  
 - Enlaces a publicaciones en redes sociales.
-
-### 🏛️ Sobre Nosotros
-
-- Historia del refugio y equipo fundador.  
-- Misión, visión y valores.  
-- Logros y testimonios.
 
 ### 📞 Contacto
 
