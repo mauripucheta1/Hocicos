@@ -42,7 +42,7 @@ const Join = () => {
 
     return (
         
-        <section id="join" className="w-full py-20 px-6 md:px-16 lg:px-32">
+        <section id="join" className="w-full mt-20 px-6 md:px-16 lg:px-32">
 
             {/* Título */}
             <motion.h2
@@ -84,9 +84,9 @@ const Join = () => {
                             transition={{ duration: 0.8, delay: idx * 0.2 }}
                         >
 
-                            <img src={area.img} alt={area.name} className="w-full md:w-1/3 h-48 object-contain" />
+                            <img src={area.img} alt={area.name} className="w-full md:w-1/3 h-40 sm:h-48 md:h-56 lg:h-64 object-contain" />
 
-                            <div className="p-6 flex flex-col justify-center gap-2">
+                            <div className="p-4 sm:p-6 flex flex-col justify-center gap-2">
 
                                 <h3 className="text-2xl font-bold text-gray-800 mb-2">{area.name}</h3>
                                 <p className="text-gray-600 mb-4">{area.desc}</p>
@@ -108,12 +108,12 @@ const Join = () => {
 
                 </div>
 
-                {/* Columna derecha - Formulario + mini carrusel */}
-                <div className="md:w-1/2 flex flex-col gap-8 relative">
+                {/* Columna derecha - Formulario */}
+                <div className="md:w-1/2 flex flex-col gap-8 justify-center">
 
                     {/* Formulario */}
                     <motion.form 
-                        className="bg-white p-8 rounded-3xl shadow-2xl space-y-4 absolute top-1/2 -translate-y-1/2"
+                        className="bg-white p-8 rounded-3xl shadow-2xl space-y-4"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}

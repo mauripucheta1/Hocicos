@@ -15,10 +15,10 @@ const Header = () => {
 
     return (
 
-        <header className="absolute top-0 left-0 w-full 2xl:h-[150px] flex justify-between items-center px-6 sm:px-10 z-50 text-white transition-all duration-500">
+        <header className="absolute top-0 left-0 w-full h-auto flex justify-between items-center px-6 sm:px-10 z-50 text-white transition-all duration-500">
 
             {/* LOGO */}
-            <div className="w-auto h-full flex items-center mt-5 md:mt-0">
+            <div className="w-auto h-full flex items-center mt-8">
 
                 <a href="#heroSection" className="flex items-center gap-3 text-nowrap">
                     <p className="text-base sm:text-lg 2xl:text-lg font-semibold uppercase leading-tight">Hocicos <br /> de Caroya</p>
@@ -27,7 +27,7 @@ const Header = () => {
             </div>
 
             {/* NAV DESKTOP */}
-            <nav className="hidden md:flex items-center gap-5 2xl:text-lg font-medium" aria-label="Menú principal">
+            <nav className="hidden md:flex items-center gap-5 2xl:text-lg font-medium mt-8" aria-label="Menú principal">
 
                 <a href="#aboutWe" className="link-animada">Nosotros</a>
                 <a href="#adopt" className="link-animada">Adoptar</a>
@@ -38,7 +38,7 @@ const Header = () => {
             </nav>
 
             {/* BOTÓN HAMBURGUESA (MOBILE) */}
-            <button className="md:hidden text-white z-[60]" onClick={toggleMenu} aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} aria-expanded={menuOpen}>
+            <button className="md:hidden text-white z-[60] mt-8" onClick={toggleMenu} aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} aria-expanded={menuOpen}>
                 {menuOpen ? (
                 <   XMarkIcon className="w-8 h-8" />
                 ) : (
