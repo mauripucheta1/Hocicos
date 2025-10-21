@@ -5,10 +5,10 @@ const Donate = () => {
 
     return (
 
-        <section id="donate" className="w-full py-20 px-6 md:px-16 lg:px-32">
+        <section id="donate" className="w-full px-6 md:px-16 lg:px-32">
 
             {/* Hero con imagen de fondo */}
-            <div className="relative w-full h-96 md:h-[500px] rounded-2xl overflow-hidden mb-12">
+            <div className="relative w-full h-80 sm:h-96 md:h-[500px] rounded-2xl overflow-hidden mb-12">
 
                 <img src="/bg-donate.webp" alt="Mascotas que necesitan ayuda" className="w-full h-full object-cover brightness-75" />
 
@@ -16,7 +16,7 @@ const Donate = () => {
 
                     {/* Título */}
                     <motion.h2
-                        className="text-4xl md:text-5xl font-extrabold mb-4 text-white"
+                        className="text-3xl md:text-5xl font-extrabold mb-4 text-white"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -27,7 +27,7 @@ const Donate = () => {
 
                     {/* Subtítulo */}
                     <motion.p
-                        className="text-white max-w-3xl text-lg mb-8 leading-relaxed"
+                        className="text-white font-medium max-w-3xl text-sm sm:text-base md:text-lg mb-8 leading-tight"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
@@ -38,10 +38,10 @@ const Donate = () => {
                     </motion.p>
 
                     {/* Botones de donación */}
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6">
 
                         <motion.button
-                            className="w-full md:w-64 py-4 bg-[#4CD964] text-white font-bold rounded-2xl shadow-lg hover:bg-[#3DB356] hover:cursor-pointer transition-all text-lg"
+                            className="sm:w-64 w-[180px] py-2 sm:py-4 bg-[#4CD964] text-white font-bold rounded-2xl shadow-lg hover:bg-[#3DB356] hover:cursor-pointer transition-all text-lg"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -49,7 +49,7 @@ const Donate = () => {
                         </motion.button>
 
                         <motion.button
-                            className="w-full md:w-64 py-4 bg-white border-2 border-[#4CD964] text-[#4CD964] font-bold rounded-2xl shadow-lg hover:bg-[#4CD964] hover:cursor-pointer hover:text-white transition-all text-lg"
+                            className="sm:w-64 w-[180px] py-2 sm:py-4 bg-white border-2 border-[#4CD964] text-[#4CD964] font-bold rounded-2xl shadow-lg hover:bg-[#4CD964] hover:cursor-pointer hover:text-white transition-all text-lg"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -63,14 +63,14 @@ const Donate = () => {
             </div>
 
             {/* Contenedor */}
-            <div className="w-full flex justify-center">
+            <div className="w-full flex flex-col lg:flex-row justify-center">
 
                 {/* Contenido */}
                 <div>
 
                     {/* Lista de insumos necesarios */}
                     <motion.div
-                        className="max-w-4xl mx-auto mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                        className="max-w-4xl mx-auto mb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
@@ -83,7 +83,7 @@ const Donate = () => {
                             { name: "Medicamentos", emoji: "💊" },
                             { name: "Mantas y ropa", emoji: "🛏️" },
                             { name: "Juguetes", emoji: "🧸" },
-                            { name: "Camas y colchonetas", emoji: "🛌" },
+                            { name: "Colchonetas", emoji: "🛌" },
                         ].map((item, idx) => (
 
                             <div key={idx} className="flex items-center gap-3 p-4 rounded-xl border border-gray-200 shadow-md bg-white">
@@ -113,15 +113,14 @@ const Donate = () => {
                 </div>
                         
                 {/* Iframe + cucha */}
-                <div className="flex items-center">
+                <div className="flex items-center mt-6 lg:mt-0 mx-auto">
 
                     <DotLottieReact
                         src="https://lottie.host/51d2b57b-ee56-4538-93d5-961a4c79b8b3/MsOywRuokx.lottie"
                         loop
                         autoplay
+                        className="w-auto h-full lg:h-[160px] xl:h-[250px] 2xl:h-[330px]"
                     />
-
-                    <img src="/cucha-perro.png" alt="Cucha del perro" className="w-[180px] h-[200px]" />
 
                 </div>
 
