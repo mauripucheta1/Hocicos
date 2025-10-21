@@ -21,7 +21,6 @@ const Header = () => {
             <div className="w-auto h-full flex items-center mt-5 md:mt-0">
 
                 <a href="#heroSection" className="flex items-center gap-3 text-nowrap">
-                    <img src="/logo-hocicos.webp" alt="Logo Hocicos" className="h-[70px] sm:h-[90px] 2xl:h-[110px] object-contain" />
                     <p className="text-base sm:text-lg 2xl:text-lg font-semibold uppercase leading-tight">Hocicos <br /> de Caroya</p>
                 </a>
 

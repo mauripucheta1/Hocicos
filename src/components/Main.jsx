@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const Main = () => {
 
@@ -7,6 +8,7 @@ const Main = () => {
         { number: "+350", text: "mascotas rescatadas", icon: "🐶" },
         { number: "+280", text: "adopciones responsables", icon: "🏡" },
         { number: "+50", text: "voluntarios", icon: "🤝" },
+        { number: "+1200", text: "atenciones veterinarias", icon: "💉" },
     ];
 
     // Historias (estáticas por el momento)
@@ -58,13 +60,31 @@ const Main = () => {
         },
     ];
 
+    // Animación del carrusel
+    const controls = useAnimation();
+    const carruselRef = useRef(null);
+
+    useEffect(() => {
+
+        if (!carruselRef.current) return;
+
+        const totalWidth = carruselRef.current.scrollWidth / 2; 
+        controls.start({
+            x: [0, -totalWidth],
+            transition: {
+                x: { repeat: Infinity, repeatType: "loop", duration: 40, ease: "linear" },
+            },
+        });
+
+    }, [controls]);
+
     return (
 
-        <main id="aboutWe" className="bg-white w-full h-auto py-20 overflow-hidden">
+        <main id="aboutWe" className="bg-white w-full h-auto py-16 sm:py-20 overflow-hidden">
 
             {/* Título principal */}
             <motion.h2
-                className="text-4xl md:text-5xl font-extrabold text-center mb-6 text-gray-800"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-6 text-gray-800 px-4"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -75,7 +95,7 @@ const Main = () => {
 
             {/* Subtítulo */}
             <motion.p
-                className="text-center text-gray-600 max-w-3xl mx-auto text-lg mb-14 leading-relaxed"
+                className="text-center text-gray-600 max-w-3xl mx-auto text-base sm:text-lg mb-14 leading-relaxed px-6"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -89,87 +109,80 @@ const Main = () => {
                 y demostrar que con empatía y acción, podemos cambiar la realidad de los que no tienen voz.
             </motion.p>
 
-
             {/* Logros */}
-            <div className="flex 2xl:flex-row justify-center gap-10">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-14 px-6 lg:px-20 py-10 lg:py-24">
 
-                <div className="w-1/2 rounded-lg">
-
-                    <img src="/main-hocicos.jpg" alt="Imagen institucional de Hocicos" className="w-full h-full object-center object-cover rounded-lg" />
-
+                {/* Imagen */}
+                <div className="w-full lg:w-1/2 flex justify-center mb-10 lg:mb-0">
+                    <img
+                    src="/logo-hocicos.webp"
+                    alt="Imagen institucional de Hocicos"
+                    className="w-4/5 sm:w-3/4 lg:w-full max-w-[480px] h-auto object-cover rounded-lg"
+                    />
                 </div>
 
-                <div className="flex flex-col gap-3">
+                {/* Logros */}
+                <div className="w-full lg:w-1/2 text-center lg:text-left">
 
-                    {logros.map((item, idx) => (
+                    <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-10">
+                        Nuestro impacto en números 🐾
+                    </h3>
 
-                        <motion.div
-                            key={idx}
-                            className="bg-white border border-gray-200 rounded-2xl shadow-md p-8 text-center"
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: idx * 0.2 }}
-                            viewport={{ once: true }}
-                        >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 sm:gap-y-12">
 
-                            <div className="text-5xl mb-4">{item.icon}</div>
-                            <h3 className="text-4xl font-extrabold text-[#4CD964] mb-2">
-                                {item.number}
-                            </h3>
-                            <p className="text-gray-700 text-lg font-medium">{item.text}</p>
+                        {logros.map((item, idx) => (
 
-                        </motion.div>
+                            <motion.div
+                                key={idx}
+                                className="flex flex-col items-center lg:items-start"
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                                viewport={{ once: true }}
+                            >
 
-                    ))}
+                                <span className="text-5xl sm:text-6xl font-extrabold text-[#4CD964] mb-1 drop-shadow-sm">
+                                    {item.number}
+                                </span>
 
+                                <span className="text-gray-700 text-lg sm:text-xl font-medium leading-snug flex items-center gap-2">
+                                    <span className="text-2xl sm:text-3xl">{item.icon}</span>
+                                    <span>{item.text}</span>
+                                </span>
+
+                            </motion.div>
+
+                        ))}
+
+                    </div>
+                    
                 </div>
 
             </div>
 
-            {/* Historias de éxito */}
-            <section className="mt-20 text-center overflow-hidden relative bg-gradient-to-b from-white to-[#4CD964] py-4 w-full">
-
-                <motion.h3
-                    className="text-3xl md:text-4xl font-bold text-gray-800 mb-10"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
+            {/* Carrusel de historias */}
+            <section className="mt-20 text-center overflow-hidden relative bg-gradient-to-b from-white to-[#4CD964]/30 py-10 w-full">
+                
+                {/* Título */}
+                <motion.h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-10 px-4"
+                initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }} viewport={{ once: true }}>
                     Historias que <span className="text-[#4CD964]">nos inspiran</span>
                 </motion.h3>
 
-                {/* Carrusel infinito */}
                 <div className="relative w-full overflow-hidden">
 
-                    <motion.div
-                        className="flex gap-8"
-                        animate={{ x: ["0%", "-100%"] }}
-                        transition={{
-                            repeat: Infinity,
-                            ease: "linear",
-                            duration: 40, 
-                        }}
-                    >
+                    <motion.div ref={carruselRef} className="flex gap-4 sm:gap-6 md:gap-8 will-change-transform" animate={controls}>
 
-                        {/* Repetimos las historias dos veces para lograr efecto infinito */}
                         {[...historias, ...historias].map((story, idx) => (
 
-                            <div key={idx} className="min-w-[300px] sm:min-w-[340px] md:min-w-[360px] bg-white border border-gray-100 rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden flex-shrink-0">
+                            <div key={idx} className="w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] xl:w-[340px] bg-white border border-gray-100 rounded-2xl shadow-md hover:shadow-lg transition-all overflow-hidden flex-shrink-0">
 
-                                <img
-                                    src={story.img}
-                                    alt={story.name}
-                                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                                />
-
-                                <div className="p-6 text-center">
-
-                                    <h4 className="text-2xl font-bold text-gray-800 mb-2">
-                                        {story.name}
-                                    </h4>
-                                    <p className="text-gray-600">{story.desc}</p>
-                                    
+                                <img src={story.img} alt={story.name} className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover hover:scale-105 transition-transform duration-500" />
+                                
+                                <div className="p-3 sm:p-4 md:p-6 text-center">
+                                    <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-1 sm:mb-2">{story.name}</h4>
+                                    <p className="text-gray-600 text-sm sm:text-base">{story.desc}</p>
                                 </div>
 
                             </div>
@@ -177,7 +190,7 @@ const Main = () => {
                         ))}
 
                     </motion.div>
-                    
+
                 </div>
 
             </section>
