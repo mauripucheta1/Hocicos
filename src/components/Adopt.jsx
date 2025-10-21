@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/24/solid";
@@ -250,16 +250,41 @@ const Adopt = () => {
     const [edad, setEdad] = useState("Todas");
     const [tamaño, setTamaño] = useState("Todos");
 
+    const filasMax = 3; 
+    const [mascotasPorPagina, setMascotasPorPagina] = useState(12);
+
+    // Recalcular según tamaño de pantalla
+    useEffect(() => {
+
+        const calcularMascotasPorPagina = () => {
+            let columnas = 1;
+            const width = window.innerWidth;
+
+            if (width >= 1280) columnas = 4; 
+            else if (width >= 1024) columnas = 4; 
+            else if (width >= 768) columnas = 3; 
+            else if (width >= 640) columnas = 2; 
+            else columnas = 1; 
+
+            const filas = columnas === 1 ? 4 : filasMax;
+            setMascotasPorPagina(columnas * filas);
+            setPagina(1); 
+        };
+
+        calcularMascotasPorPagina();
+        window.addEventListener("resize", calcularMascotasPorPagina);
+        return () => window.removeEventListener("resize", calcularMascotasPorPagina);
+
+    }, []);
+
     // Filtrado dinámico
     const mascotasFiltradas = mascotas.filter((pet) => {
         const tipoMatch = tipo === "Todos" || pet.tipo === tipo;
         const tamañoMatch = tamaño === "Todos" || pet.tamaño === tamaño;
-        const edadMatch = edad === "Todas" || pet.edad === Number(edad);
+        const edadMatch = edad === "Todas" || parseInt(pet.edad) === Number(edad);
         return tipoMatch && tamañoMatch && edadMatch;
     });
 
-    // Paginación sobre las filtradas
-    const mascotasPorPagina = 12;
     const totalPaginas = Math.ceil(mascotasFiltradas.length / mascotasPorPagina);
     const mascotasMostradas = mascotasFiltradas.slice(
         (pagina - 1) * mascotasPorPagina,
@@ -272,6 +297,7 @@ const Adopt = () => {
             
             {/* Título */}
             <motion.h2
+                id="refTitle"
                 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-gray-800"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -296,7 +322,7 @@ const Adopt = () => {
 
 
             {/* Filtros */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-col items-center md:flex-row justify-center gap-4 mb-12">
 
                 {/* Tipo */}
                 <div className="flex flex-col items-center w-40 gap-2">
@@ -365,7 +391,7 @@ const Adopt = () => {
 
                     <Listbox value={edad} onChange={setEdad}>
 
-                        <div className="relative w-32">
+                        <div className="relative w-40">
 
                             <Listbox.Button className="relative w-full cursor-pointer rounded-full border border-gray-300 bg-white py-2 pl-3 pr-10 text-left focus:outline-none focus:ring-2 focus:ring-[#4CD964]">
                                 <span className="block truncate">{edad === "" ? "Edad" : edad}</span>
@@ -489,7 +515,7 @@ const Adopt = () => {
                             viewport={{ once: true }}
                         >
 
-                            <img src={pet.foto}  alt={pet.nombre} className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500" />
+                            <img src={pet.foto}  alt={pet.nombre} className="w-full h-40 sm:h-56 md:h-64 lg:h-72 object-cover hover:scale-105 transition-transform duration-500" />
 
                             <div className="p-6 flex flex-col flex-1">
 
@@ -519,20 +545,60 @@ const Adopt = () => {
             </div>
 
             {/* Botonera de paginación */}
-            <div className="flex justify-center mt-12 gap-3">
+            <div className="flex flex-col items-center mt-12 gap-2">
 
-                {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((num) => (
+                <div className="flex items-center gap-3">
 
-                    <button key={num} onClick={() => setPagina(num)} className={`px-4 py-2 rounded-full font-semibold transition-all hover:cursor-pointer ${
-                        num === pagina
-                            ? "bg-[#4CD964] text-white"
-                            : "bg-gray-200 text-gray-700 hover:bg-[#4CD964]/30"
-                        }`}
-                    >
-                        {num}
+                    {/* Retroceder */}
+                    <button onClick={() => { setPagina(prev => 
+
+                        { 
+                            const next = Math.max(prev - 1, 1);
+                            document.getElementById("refTitle")?.scrollIntoView({ behavior: "smooth" });
+                            return next;
+                        });
+
+                    }} className="px-4 py-2 rounded-full font-semibold bg-gray-200 text-gray-700 hover:bg-[#4CD964]/30 transition-all">
+                        &lt;
                     </button>
 
-                ))}
+                    {/* Input de página */}
+                    <div className="flex flex-col items-center">
+
+                        <input type="number" min={1} max={totalPaginas} value={pagina} onChange={(e) => 
+
+                            {
+                                const val = parseInt(e.target.value);
+                                if (!isNaN(val)) setPagina(val);
+                            }}
+
+                        className="w-16 px-3 py-2 text-center border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4CD964] border-gray-400" />
+
+                        {pagina < 1 || pagina > totalPaginas ? (
+                            <span className="text-red-500 text-xs mt-1">Página no encontrada</span>
+                        ) : null}
+
+                    </div>
+
+                    {/* Avanzar */}
+                    <button onClick={() => { setPagina(prev => 
+
+                        {
+                            const next = Math.min(prev + 1, totalPaginas);
+                            document.getElementById("refTitle")?.scrollIntoView({ behavior: "smooth" });
+                            return next;
+                        });
+
+                    }} className="px-4 py-2 rounded-full font-semibold bg-gray-200 text-gray-700 hover:bg-[#4CD964]/30 transition-all">
+                        &gt;
+                    </button>
+
+                </div>
+
+                {/* Total de páginas */}
+                <span className="text-gray-500 text-sm mt-1">
+                    de {totalPaginas} páginas
+                </span>
 
             </div>
 
