@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ChatBubbleLeftRightIcon, CameraIcon, GlobeAltIcon } from "@heroicons/react/24/solid";
 
 const Contact = () => {
 
@@ -31,7 +30,7 @@ const Contact = () => {
             </motion.p>
 
             {/* Contenedor principal */}
-            <div className="flex flex-col md:flex-row gap-16 items-start md:items-stretch">
+            <div className="flex flex-col md:flex-row gap-16 items-center md:items-stretch">
 
                 {/* Columna izquierda */}
                 <motion.div
@@ -43,7 +42,7 @@ const Contact = () => {
                 >
 
                     {/* Redes */}
-                    <div>
+                    <div className="flex flex-col items-center">
 
                         <h3 className="text-2xl font-semibold text-gray-800 mb-4">Redes sociales</h3>
 
@@ -86,14 +85,14 @@ const Contact = () => {
                     {/* Mapa */}
                     <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-xl">
                         <iframe
-                        title="Ubicación del refugio"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.740230!2d-58.381559!3d-34.603684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjMiUyA1OMKwMjInNTMuNyJX!5e0!3m2!1ses!2sar!4v1688055555555!5m2!1ses!2sar"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
+                            title="Ubicación del refugio"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.740230!2d-58.381559!3d-34.603684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjMiUyA1OMKwMjInNTMuNyJX!5e0!3m2!1ses!2sar!4v1688055555555!5m2!1ses!2sar"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
 
@@ -101,35 +100,25 @@ const Contact = () => {
 
                 {/* Columna derecha - Formulario */}
                 <motion.form
-                className="md:w-1/2 bg-white rounded-3xl shadow-2xl p-8 flex flex-col gap-6"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+                    className="w-full md:w-1/2 bg-white rounded-3xl shadow-2xl p-8 flex flex-col gap-6"
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
                 >
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Escribinos</h3>
-                <input
-                    type="text"
-                    placeholder="Nombre completo"
-                    className="p-3 rounded-full border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]"
-                />
-                <input
-                    type="email"
-                    placeholder="Correo electrónico"
-                    className="p-3 rounded-full border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]"
-                />
-                <textarea
-                    placeholder="Tu mensaje..."
-                    rows="5"
-                    className="p-3 rounded-2xl border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964] resize-none"
-                ></textarea>
-                <button
-                    type="submit"
-                    className="w-full py-3 bg-[#4CD964] text-white rounded-full font-bold shadow-lg hover:bg-[#3DB356] transition-all hover:cursor-pointer"
-                >
-                    Enviar mensaje
-                </button>
+
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Escribinos</h3>
+                    <input type="text" placeholder="Nombre completo" className="p-3 rounded-full border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]" />
+                    <input type="email" placeholder="Correo electrónico" className="p-3 rounded-full border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964]" />
+                    <textarea placeholder="Tu mensaje..." rows="5" className="p-3 rounded-2xl border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-[#4CD964] 
+                    resize-none"></textarea>
+
+                    <button type="submit" className="w-full py-3 bg-[#4CD964] text-white rounded-full font-bold shadow-lg hover:bg-[#3DB356] transition-all hover:cursor-pointer">
+                        Enviar mensaje
+                    </button>
+
                 </motion.form>
+
             </div>
 
         </section>
