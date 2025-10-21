@@ -55,14 +55,14 @@ const Hero = () => {
             </AnimatePresence>
 
             {/* Contenido textual */}
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 md:px-10">
 
                 <motion.h1
                     key={slides[currentIndex].title}
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="text-4xl md:text-6xl font-bold text-white mb-4"
+                    className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4"
                 >
                     {slides[currentIndex].title}
                 </motion.h1>
@@ -83,7 +83,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.3, ease: "easeOut", delay: 0.4 }}
-                    className="flex flex-wrap justify-center gap-4 mt-8"
+                    className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-8"
                 >
 
                     {slides[currentIndex].buttons.map((btn, idx) => {
@@ -132,13 +132,13 @@ const Hero = () => {
             </div>
 
             {/* Botones de navegación */}
-            <button onClick={prevImage} className="absolute top-1/2 left-6 -translate-y-1/2 bg-gray-200/20 hover:bg-gray-800/40 transition-all rounded-full p-2 z-20 hover:cursor-pointer">
+            <button onClick={prevImage} className="absolute top-[85%] sm:top-1/2 left-6 -translate-y-1/2 bg-gray-200/20 hover:bg-gray-800/40 transition-all rounded-full p-2 z-20 hover:cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" stroke="#4cd964" fill="none" viewBox="0 0 24 24">
                     <path d="M15 18l-6-6 6-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </button>
 
-            <button onClick={nextImage} className="absolute top-1/2 right-6 -translate-y-1/2 bg-gray-200/20 hover:bg-gray-800/40 transition-all rounded-full p-2 z-20 hover:cursor-pointer">
+            <button onClick={nextImage} className="absolute top-[85%] sm:top-1/2 right-6 -translate-y-1/2 bg-gray-200/20 hover:bg-gray-800/40 transition-all rounded-full p-2 z-20 hover:cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" stroke="#4cd964" fill="none" viewBox="0 0 24 24">
                     <path d="M9 6l6 6-6 6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
