@@ -5,10 +5,10 @@ const Main = () => {
 
     // Logros (estáticos de momento)
     const logros = [
-        { number: "+350", text: "mascotas rescatadas", icon: "🐶" },
-        { number: "+280", text: "adopciones responsables", icon: "🏡" },
-        { number: "+50", text: "voluntarios", icon: "🤝" },
-        { number: "+1200", text: "atenciones veterinarias", icon: "💉" },
+        { number: "+350", text: "Rescates", icon: "🐶" },
+        { number: "+280", text: "Adopciones", icon: "🏡" },
+        { number: "+50", text: "Voluntarios", icon: "🤝" },
+        { number: "+1200", text: "Atenciones", icon: "💉" },
     ];
 
     // Historias (estáticas por el momento)
@@ -110,55 +110,61 @@ const Main = () => {
             </motion.p>
 
             {/* Logros */}
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-14 px-6 lg:px-20 py-10 lg:py-24">
+            <section className="w-full px-6 lg:px-20 bg-white">
 
-                {/* Imagen */}
-                <div className="w-full lg:w-1/2 flex justify-center mb-10 lg:mb-0">
-                    <img
-                    src="/logo-hocicos.webp"
-                    alt="Imagen institucional de Hocicos"
-                    className="w-4/5 sm:w-3/4 lg:w-full max-w-[480px] h-auto object-cover rounded-lg"
-                    />
-                </div>
+                <div className="max-w-5xl mx-auto text-center">
 
-                {/* Logros */}
-                <div className="w-full lg:w-1/2 text-center lg:text-left">
+                    <motion.h3
+                        className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                    Nuestro impacto 🐾
+                    </motion.h3>
 
-                    <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-10">
-                        Nuestro impacto en números 🐾
-                    </h3>
+                    <motion.p
+                        className="text-gray-500 text-lg sm:text-xl max-w-2xl mx-auto mb-16 leading-relaxed"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                    >
+                        Cada número refleja vidas cambiadas, hogares construidos y amor multiplicado.
+                    </motion.p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 sm:gap-y-12">
+                    {/* Contenedor de logros */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16">
 
                         {logros.map((item, idx) => (
 
                             <motion.div
                                 key={idx}
-                                className="flex flex-col items-center lg:items-start"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                                transition={{ duration: 0.6, delay: idx * 0.1 }}
                                 viewport={{ once: true }}
+                                className="flex flex-col items-center"
                             >
 
-                                <span className="text-5xl sm:text-6xl font-extrabold text-[#4CD964] mb-1 drop-shadow-sm">
+                                <span className="text-6xl sm:text-7xl font-bold text-[#4CD964] mb-3">
                                     {item.number}
                                 </span>
-
-                                <span className="text-gray-700 text-lg sm:text-xl font-medium leading-snug flex items-center gap-2">
-                                    <span className="text-2xl sm:text-3xl">{item.icon}</span>
+                                <div className="flex items-center justify-center gap-2 text-gray-700 text-lg sm:text-xl font-medium">
+                                    <span className="text-2xl">{item.icon}</span>
                                     <span>{item.text}</span>
-                                </span>
+                                </div>
 
                             </motion.div>
-
+                            
                         ))}
 
                     </div>
-                    
+
                 </div>
 
-            </div>
+            </section>
 
             {/* Carrusel de historias */}
             <section className="mt-20 text-center overflow-hidden relative bg-gradient-to-b from-white to-[#4CD964]/30 py-10 w-full">
